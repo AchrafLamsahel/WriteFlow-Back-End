@@ -1,16 +1,18 @@
 package org.writeflow.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter @Builder
+@Entity
 public class User {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
     private String userName;
     private String email;
     private String phoneNumber;
@@ -24,6 +26,8 @@ public class User {
     private String confirmationToken;
     private String resetPasswordToken;
     private Date resetPasswordTokenExpiryDate;
-    private Set<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    private Collection<Role> roles = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     private List<Article> articles;
 }

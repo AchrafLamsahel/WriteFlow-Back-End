@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Category {
-    private Long id;
+    private Long categoryId;
     private String categoryName;
     private String categoryImage;
     private String categoryDescription;

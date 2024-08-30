@@ -1,5 +1,7 @@
 package org.writeflow.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data @AllArgsConstructor @NoArgsConstructor
+@Entity
 public class Article {
-    private Long id;
+    @Id
+    private Long articleId;
     private String title;
     private String content;
     private String summary;

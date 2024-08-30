@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Comment {
-    private Long id;
+    private Long commentId;
     private String content;
-    private Long articleId;
+    private Long userId;
 }
