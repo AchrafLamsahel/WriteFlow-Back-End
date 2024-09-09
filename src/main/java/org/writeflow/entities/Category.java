@@ -9,5 +9,6 @@ public class Category {
     private Long categoryId;
     private String categoryName;
     private String categoryImage;
-    private String categoryDescription;
+    //TODO add category list "articles"
+
 }

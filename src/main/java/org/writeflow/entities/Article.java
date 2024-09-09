@@ -1,14 +1,15 @@
 package org.writeflow.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 @Entity
@@ -25,4 +26,7 @@ public class Article {
     private LocalDateTime updateTimestamp;
     private Long userId;
     private Date publishedAt;
+    @OneToMany( fetch = FetchType.EAGER , cascade= CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+    //TODO suggestions
 }

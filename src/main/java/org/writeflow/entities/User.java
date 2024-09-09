@@ -15,7 +15,6 @@ public class User {
     private Long userId;
     private String userName;
     private String email;
-    private String phoneNumber;
     private String password;
     @CreationTimestamp
     private LocalDateTime creationAt;
@@ -26,8 +25,8 @@ public class User {
     private String confirmationToken;
     private String resetPasswordToken;
     private Date resetPasswordTokenExpiryDate;
-    @ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER , cascade=CascadeType.ALL)
     private Collection<Role> roles = new ArrayList<>();
-    @OneToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER , cascade=CascadeType.ALL)
     private List<Article> articles;
 }
