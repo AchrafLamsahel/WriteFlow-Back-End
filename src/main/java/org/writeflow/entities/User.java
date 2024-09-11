@@ -25,8 +25,10 @@ public class User {
     private String confirmationToken;
     private String resetPasswordToken;
     private Date resetPasswordTokenExpiryDate;
-    @ManyToMany(fetch = FetchType.EAGER , cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Role> roles = new ArrayList<>();
-    @OneToMany(fetch = FetchType.EAGER , cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Article> articles;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Like> likes;
 }

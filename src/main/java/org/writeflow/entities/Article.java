@@ -29,4 +29,6 @@ public class Article {
     @OneToMany( fetch = FetchType.EAGER , cascade= CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
     //TODO suggestions
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Like> likes;
 }
